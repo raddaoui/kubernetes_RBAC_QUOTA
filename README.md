@@ -8,13 +8,15 @@ I created a kubernetes cluster and I have admin role. Now, I want to add users t
 How can I do that?
 
 
-# Add users to your kubernetes cluster
+Add users to your kubernetes cluster
+---------------------------------------
 
 let's suppose that we want to add user Harry Potter to our cluster with username harry-potter and namespace harry-potter-ns and who belongs to the actors group
 
-if you want to go throught the quick way execute this command:
+`NOTE:` if you want to go throught the quick way execute the following command otherwise contiune reading below:
 
 	bash create_new_user.sh harry-potter actors
+
 
 
 1. create namespace that the user will own:
@@ -51,7 +53,8 @@ if you want to go throught the quick way execute this command:
 		kubectl certificate approve csr-harry-potter
 
 
-# setup RBAC
+setup RBAC
+-----------
 
 at the end of this section user will only have edit access to his namespace and view access clusterwise
 
@@ -92,7 +95,8 @@ at the end of this section user will only have edit access to his namespace and 
 		  apiGroup: rbac.authorization.k8s.io
 		EOF
 
-# setup resource quota for the user namespace
+setup resource quota for the user namespace
+----------------------------------------------
 
 7. assign resource quotas to the namespace where user will be working
 
@@ -112,7 +116,8 @@ at the end of this section user will only have edit access to his namespace and 
 		    requests.nvidia.com/gpu: 2
 		EOF
 
-# create a kubeconfig file to send to the user for cluster access
+create a kubeconfig file ready to be sent to the user for cluster access
+--------------------------------------------------------------------------
 
 8. get the user signed certificate
 
