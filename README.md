@@ -7,17 +7,16 @@ Storyline
 I created a kubernetes cluster and I have admin role. Now, I want to add users to my cluster while giving them access only to their namespace and limit their resource usage to a certain quota.
 How can I do that?
 
+let's suppose that we want to add a user Harry Potter to our cluster with username harry-potter who belongs to the actors group. The user should also be able to only create/delete/edit resources in his namespace harry-potter-ns
 
-Add users to your kubernetes cluster
----------------------------------------
-
-let's suppose that we want to add user Harry Potter to our cluster with username harry-potter and namespace harry-potter-ns and who belongs to the actors group
 
 `NOTE:` if you want to go throught the quick way execute the following command otherwise contiune reading below:
 
 	bash create_new_user.sh harry-potter actors
 
 
+Add users to your kubernetes cluster
+---------------------------------------
 
 1. create namespace that the user will own:
 
@@ -98,7 +97,7 @@ at the end of this section user will only have edit access to his namespace and 
 setup resource quota for the user namespace
 ----------------------------------------------
 
-7. assign resource quotas to the namespace where user will be working
+7. assign resource quotas to the namespace where user will be working. change them accoding to your needs
 
 
 		cat <<EOF | kubectl create -f -
