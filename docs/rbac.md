@@ -1,6 +1,6 @@
-#Configuring RBAC for Users in Your Kubernetes Cluster
+# Configuring RBAC for Users in Your Kubernetes Cluster
 
-##Introduction
+## Introduction
 
 This guide will go through the basic Kubernetes Role-Based Access Control (RBAC) API Objects. 
 From Kubernetes 1.6 onwards, RBAC policies are enabled by default. RBAC policies are vital for the correct management of your cluster, as they allow you to specify which types of actions are permitted depending on the user and their role in your organization. Examples include:
@@ -14,7 +14,8 @@ This guide will show you how to work with RBAC so you can properly configure use
 
 ## RBAC API Objects
 
-One basic Kubernetes feature is that all its resources are modeled API objects, which allow CRUD (Create, Read, Update, Delete) operations. Examples of resources are Pods, PersistentVolumes, Configmaps, Deployment, Nodes, Secrets, Namespaces, etc.
+One basic Kubernetes fe
+ature is that all its resources are modeled API objects, which allow CRUD (Create, Read, Update, Delete) operations. Examples of resources are Pods, PersistentVolumes, Configmaps, Deployment, Nodes, Secrets, Namespaces, etc.
 
 The operation which can be performed over these resource are 
 
@@ -96,7 +97,7 @@ view                   ClusterRole.v1.rbac.authorization.k8s.io   7 item(s)
 
 With these roles, you can start to define who can interact with your cluster and in what way, and if you follow the **principle of least privilege**, you will grant additional privileges as necessary for work to proceed. Running ```kubectl describe clusterrole {name}``` will show you information about the ClusterRole, and if you get the information with ```-o yaml```, you can copy it, edit it, and create new Roles and ClusterRoles for your users and resources.
 
-###RoleBinding and ClusterRoleBinding
+### RoleBinding and ClusterRoleBinding
 
 A role binding grants the permissions defined in a role to a user or set of users. It holds a list of subjects (users, groups, or service accounts), and a reference to the role being granted. Permissions can be granted within a namespace with a RoleBinding, or cluster-wide with a ClusterRoleBinding.
 
@@ -152,7 +153,7 @@ roleRef:
   name: secret-reader
   apiGroup: rbac.authorization.k8s.io
 ```
-##Verifying Access
+## Verifying Access
 We have created the RoleBinding, but how does an administrator verify the Roles for a user? For this, we'll use the auth can-i command to impersonate users and test their accounts against the RBAC policies in place.
 
 For example, to verify users1’s access to pods in the user-1 namespace:
@@ -167,7 +168,7 @@ Does user1 have access to create deployments in the user-1 namespace?
 $ kubectl auth can-i create deployments --namespace dev --as joe
 no
 ```
-##Common Cluster RBAC Policies for Users
+## Common Cluster RBAC Policies for Users
 
 **Default Role**
 Given to all users in the system, would help in discovery and common read only operations
