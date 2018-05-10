@@ -7,13 +7,12 @@ A resource quota, defined by a ResourceQuota object, provides constraints that l
 
 ## Resources Managed by Qouta
 
-Resource Quota Type | Description | 
---- | --- | ---
-**Compute** |**requests.cpu </br> requests.memory </br> limits.cpu </br> limits.memory** | 
-**Storage** | **`<storage-class.name>`.storageclass.storage.k8s.io/requests.storage </br> `<storage-class.name>`.storageclass.storage.k8s.io/persistentvolumeclaims </br> persistentvolumeclaims </br> requests.storage** |
-**Object Count** | **pods </br> services </br> services.loadbalancers </br> services.nodeports </br> persitentvolumeclaims </br> resourcequotas </br> replicationcontrollers </br> configmaps </br> secrets**  |
-**Extended resources** | **requests.nvidia.com/gpu** [more](https://kubernetes.io/docs/tasks/configure-pod-container/extended-resource/)
-
+| Resource Quota Type  |  Description |
+|---|---|
+| **Compute**  | **requests.cpu </br> requests.memory </br> limits.cpu </br> limits.memory**   |
+| **Storage** |  **`<storage-class.name>`.storageclass.storage.k8s.io/requests.storage </br> `<storage-class.name>`.storageclass.storage.k8s.io/persistentvolumeclaims </br> persistentvolumeclaims </br> requests.storage** |
+| **Object Count** | **pods </br> services </br> services.loadbalancers </br> services.nodeports </br> persitentvolumeclaims </br> resourcequotas </br> replicationcontrollers </br> configmaps </br> secrets**   |
+| **Extended resources**|  **requests.nvidia.com/gpu** [more](https://kubernetes.io/docs/tasks/configure-pod-container/extended-resource/)  |
 
 ### Resource Quota Example
 
