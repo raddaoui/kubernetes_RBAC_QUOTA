@@ -94,7 +94,7 @@ at the end of this section user will only have edit access to his namespace and 
 		  apiGroup: rbac.authorization.k8s.io
 		EOF
 
-For more examples on [RBAC](docs/rabc.md)
+For more examples on [RBAC](docs/rbac.md)
 
 setup resource quota for the user namespace
 ----------------------------------------------
