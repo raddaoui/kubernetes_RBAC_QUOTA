@@ -4,7 +4,6 @@
 
 A resource quota, defined by a ResourceQuota object, provides constraints that limit aggregate resource consumption per namespace. It can limit the quantity of objects that can be created in a namespace by type, as well as the total amount of compute resources that may be consumed by resources in that namespace. If creating or updating a resource violates a quota constraint, the request will fail with HTTP status code 403 FORBIDDEN with a message explaining the constraint that would have been violated.
 
-
 ## Resources Managed by Qouta
 
 | Resource Quota Type  |  Description |
@@ -52,10 +51,10 @@ spec:
       memory: 256Mi
     type: Container
  ```
- 
+
 What happens when we exceed a Resource Quota with a high level controller like Deployment:
 
-```
+```yaml
 kubectl describe deploy/gateway-quota
 Name:            gateway-quota
 Namespace:        fail
@@ -74,10 +73,10 @@ Events:
   9m        9m      1   {deployment-controller }            Normal      ScalingReplicaSet   Scaled up replica set gateway-quota-551394438 to 1
   5m        5m      1   {deployment-controller }            Normal      ScalingReplicaSet   Scaled up replica set gateway-quota-551394438 to 3
 ```
-  
+
 Lastline in description shows the ReplicaSet was told to scale to 3. Let's inspect the ReplicaSet using describe
-  
-```
+
+```yaml
 kubectl describe replicaset gateway-quota-551394438
 Name:        gateway-quota-551394438
 Namespace:    fail
@@ -99,4 +98,5 @@ Steps to take in case of pending jobs:
 
 - Ask your cluster admin to increase the Quota for this namespace
 - Delete or scale back other Deployments in this namespace
- 
+
+**Note**: Setting a lower resource quota after creating resources does not rollback the existing resources, it waits for them to be completed and rejects new resources being created which do not follow the resource quota criteria.
