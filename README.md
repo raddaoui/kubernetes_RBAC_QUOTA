@@ -94,6 +94,8 @@ at the end of this section user will only have edit access to his namespace and 
 		  apiGroup: rbac.authorization.k8s.io
 		EOF
 
+For more examples on [RBAC](docs/rbac.md)
+
 setup resource quota for the user namespace
 ----------------------------------------------
 
@@ -114,6 +116,8 @@ setup resource quota for the user namespace
 		    limits.memory: 12Gi
 		    requests.nvidia.com/gpu: 2
 		EOF
+
+For more examples on [Resource Quota](docs/resource_quota.md)
 
 create a kubeconfig file ready to be sent to the user for cluster access
 --------------------------------------------------------------------------
