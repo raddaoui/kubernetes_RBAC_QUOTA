@@ -1,0 +1,4 @@
+Thank you for installing {{ .Chart.Name }}.
+
+To view the resourcequota run the following command in terminal
+kubectl describe resourcequota --namespace={{ .Values.namespace}}

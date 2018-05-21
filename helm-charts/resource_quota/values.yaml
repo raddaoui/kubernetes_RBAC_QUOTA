@@ -1,0 +1,18 @@
+# Default values for resource_quota.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+resources:
+  configmaps: "10"
+  requests.cpu: "500m"
+  requests.memory: "2Gi"
+  persistentvolumeclaims: "4"
+  replicationcontrollers: "20"
+  secrets: "10"
+  services: "10"
+  services.loadbalancers: "2"
+  pods: "20"
+
+extended_resources:
+  requests.nvidia.com/gpu: "4"
+
+namespace:

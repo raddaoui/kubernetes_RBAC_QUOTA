@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: resource-quota-{{ .Values.namespace }}
+  namespace: {{ required "A valid namespace required" .Values.namespace}}
+spec:
+  hard:
+    {{- range $index, $resource := .Values.resources}}
+    {{ $index }} : {{ $resource }}
+    {{- end}}
+    {{- range $index, $resource := .Values.extended_resources}}
+    {{ $index }} : {{ $resource }}
+    {{- end}}
