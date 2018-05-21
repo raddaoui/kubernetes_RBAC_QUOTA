@@ -1,4 +1,4 @@
-Add users to your kubernetes cluster, setup RBAC and limite their usable resource quota.
+Add users to your kubernetes cluster, setup RBAC and limit their usable resource quota.
 ============================================================================================
 
 Storyline
