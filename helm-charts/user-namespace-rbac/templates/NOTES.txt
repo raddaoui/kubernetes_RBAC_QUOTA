@@ -1,0 +1,5 @@
+Thank you for installing {{ .Chart.Name }}.
+
+To view the RBAC policies created for the following user {{ .Values.username }}
+kubectl describe ClusterRoleBinding {{ .Values.username }}-view-all
+kubectl describe RoleBinding .Values.username }}-edit-own-ns --namespace={{ .Values.namespace}}

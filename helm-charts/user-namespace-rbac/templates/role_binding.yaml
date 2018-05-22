@@ -1,0 +1,13 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: {{ required "A valid user is required" .Values.username }}-edit-own-ns
+  namespace: {{ required "A valid namespace is required" .Values.namespace }}
+subjects:
+- kind: User
+  name: {{ .Values.username }}
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: edit
+  apiGroup: rbac.authorization.k8s.io

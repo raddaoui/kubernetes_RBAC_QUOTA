@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm chart to create user/edit-own-namespace role binding and view-all cluster role binding
+name: rbac_chart
+version: 0.1.0
